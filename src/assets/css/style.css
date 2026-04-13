@@ -497,3 +497,50 @@ table th {
     border-radius: 4px;
     cursor: pointer;
 }
+/* BLUR BACKGROUND */
+.blur-bg {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* FULL SCREEN */
+.popup-content {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* BUTTON LIKE LINK */
+.link-btn {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+}
