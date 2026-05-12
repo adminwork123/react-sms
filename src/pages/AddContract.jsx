@@ -1,17 +1,69 @@
 import React, { useState } from "react";
 import MainMenu from "./cms_includes_file/MainMenu";
+import Model from "./Model";
 import "../assets/css/style.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function AddContractPage() {
-   const [activeTab, setActiveTab] = useState("costs");
-
+  const [activeTab, setActiveTab] = useState("costs");
+  const location = useLocation();
   return (
     <div>
 
       {/* MENU */}
       <MainMenu />
+      <div className="top-menu-container" style={{padding:0,background:"#bacfe0"}}>
+        <a href="#">New</a>
+        <a href="#">Save</a>
+        <a href="#">Search</a>
 
+        {/* ✅ Dropdown */}
+        <div className="menu-item">
+          <span>Duplicate ▾</span>
+
+          <div className="dropdown">
+            <a href="#">Duplicate</a>
+          </div>
+        </div>
+        
+        <div className="menu-item">
+          <span>Print ▾</span>
+
+          <div className="dropdown">
+            <a href="#">Contract</a>
+            <a href="#">Amendment</a>
+            <a href="#">Both</a>
+            <a href="#">Sample Instruction</a>
+            <a href="#">Release Instruction</a>
+          </div>
+        </div>
+        <div className="menu-item">
+          <span>Email ▾</span>
+
+          <div className="dropdown">
+            <a href="#">Contract</a>
+            <a href="#">Sample Instruction</a>
+            <a href="#">Release Instruction</a>
+          </div>
+        </div>
+        
+        <div className="menu-item">
+          <span>Process ▾</span>
+
+          <div className="dropdown">
+            <a href="#">Inventory Receipt</a>
+            <a href="#">Inventory Shipment</a>
+            <a href="#">Shipment</a>
+            <a href="#">Shipment Instruction</a>
+          </div>
+        </div>
+
+        <a href="#">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Split</a>
+        <a href="#">Close</a>
+
+      </div>
       {/* TOP MENU */}
       <div className="top-menu-container">
         <a href="#" className="active">Details</a>
@@ -31,33 +83,88 @@ export default function AddContractPage() {
 
           {/* COLUMN 1 */}
           <div className="div-column">
-            {[
-              "Template",
-              "Type *",
-              "Vendor *",
-              "Book",
-              "Sub Book",
-              "Commodity",
-              "Location"
-            ].map((label, i) => (
-              <div className="form-row" key={i}>
-                <div className="form-group">
-                  <label>{label}</label>
-                  {label.includes("Book") || label.includes("Vendor") || label.includes("Sub") ? (
-                    <input type="text" />
-                  ) : (
-                    <select><option value=""></option></select>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* COLUMN 2 */}
-          <div className="div-column">
             <div className="form-row">
               <div className="form-group">
-                <label>Contract Date *</label>
+                <label>Template</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Type<span className="required_field">*</span>
+                </label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Vendor<span className="required_field">*</span>
+                </label>
+                <input type="text" />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Book</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Sub Book</label>
+                <input type="text" />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Commodity</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Quantity<span className="required_field">*</span>
+                </label>
+                <input type="text" />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Location</label>
+                <select>
+                  <option value="">Walter Matter</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+          {/* COLUMN 2 */}
+          <div className="div-column">
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Contract Date
+                  <span className="required_field">*</span>
+                </label>
                 <input type="date" />
               </div>
             </div>
@@ -68,34 +175,76 @@ export default function AddContractPage() {
                 <input type="text" />
               </div>
             </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Contact</label>
+                <input type="text" />
+              </div>
+            </div>
+
           </div>
 
           {/* COLUMN 3 */}
           <div className="div-column">
-            {[
-              "Position",
-              "Freight Term",
-              "Country",
-              "Pricing Type *",
-              "Terms",
-              "Days For Finance"
-            ].map((label, i) => (
-              <div className="form-row" key={i}>
-                <div className="form-group">
-                  <label>{label}</label>
-                  {label.includes("Days") ? (
-                    <input type="text" />
-                  ) : (
-                    <select><option value=""></option></select>
-                  )}
-                </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Position</label>
+                <select>
+                  <option value=""></option>
+                </select>
               </div>
-            ))}
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Freight Term</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Country</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Pricing type<span className="required_field">*</span>
+                </label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Terms</label>
+                <select>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Days For Finance</label>
+                <input type="text" />
+              </div>
+            </div>
+
           </div>
 
           {/* COLUMN 4 */}
           <div className="div-column">
-
             <div className="form-row">
               <div className="form-group">
                 <label>Contract No</label>
@@ -105,15 +254,19 @@ export default function AddContractPage() {
 
             <div className="form-row">
               <div className="form-group">
-                <label>Salesperson *</label>
+                <label>
+                  Salesperson <span className="required_field">*</span>
+                </label>
                 <input type="text" />
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group">
-                <label>Contract Text</label>
-                <select><option></option></select>
+                <label>Contract text</label>
+                <select>
+                  <option value=""></option>
+                </select>
               </div>
             </div>
 
@@ -138,15 +291,24 @@ export default function AddContractPage() {
               </div>
             </div>
 
-            {/* RADIO */}
+            {/* ✅ RADIO GROUP */}
             <div className="form-row">
-              <div className="form-group" style={{ display: "flex", gap: "20px" }}>
-                <label>
-                  <input type="radio" name="approval" /> Signed
-                </label>
-                <label>
-                  <input type="radio" name="approval" /> Printed
-                </label>
+              <div className="form-group radio-group">
+
+                <div className="radio-item">
+                  <input type="radio" name="approval_type" value="signed" id="signed" />
+                  <label htmlFor="signed">
+                    Signed <span className="required_field">*</span>
+                  </label>
+                </div>
+
+                <div className="radio-item">
+                  <input type="radio" name="approval_type" value="printed" id="printed" />
+                  <label htmlFor="printed">
+                    Printed <span className="required_field">*</span>
+                  </label>
+                </div>
+
               </div>
             </div>
 
@@ -166,7 +328,13 @@ export default function AddContractPage() {
       <div className="scroll-container">
         <div className="super-heading">
         <div className="action-toolbar">
-            <Link to="/AddContractDetails" className="action-btn"><i className="fas fa-file-signature"></i> Insert</Link>
+            <Link
+              to="/AddContractDetails"
+              state={{ backgroundLocation: location }}
+              className="action-btn"
+            >
+              <i className="fas fa-file-signature"></i> Insert
+            </Link>
 
             <a href="#" className="action-btn">
             <i className="fa fa-trash"></i> Remove
@@ -220,7 +388,7 @@ export default function AddContractPage() {
         </div>
 
         <div style={{ overflowX: "auto" }}>
-        <table id="contractTable" style={{ minHeight: "200px" }}>
+        <table id="contractTable">
             
             <thead style={{ background: "#f5f5f5" }}>
             <tr>
@@ -237,15 +405,50 @@ export default function AddContractPage() {
                 <th>End Date</th>
                 <th>Freight Terms</th>
                 <th>Contracted</th>
-                <th>Book</th>
-                <th>Sub Book</th>
-                <th>Quantity</th>
-                <th>Net Weight</th>
+                <th>UOM</th>
+                <th>Balance</th>
+                <th>Applied</th>
+                <th>Qty Scheduled</th>
+                <th>Avaiable</th>
+                <th>Pricing Type</th>
+                <th>Furture Price</th>
+                <th>Ratio</th>
+                <th>Basis</th>
+                <th>Furture Market</th>
+                <th>Fueture Month/year</th>
+                <th>Cash Price</th>
+                <th>Lots</th>
+                <th>Price UOM</th>
+                <th>Currency</th>
+                <th>Priced Qty</th>
+                <th>Unpriced Qty</th>
+                <th>Priced Lots</th>
+                <th>Unpriced Lots</th>
+                <th>Exchange Rate</th>
+                <th>Reference</th>
+                <th>Market Zone</th>
+                <th>Discount</th>
+                <th>Schedule</th>
+                <th>Option</th>
+                <th>Planned Availability Date</th>
+                <th>Event Start Date</th>
+                <th>Updated Availability Date</th>
+                <th>Container</th>
+                <th>Sample Type</th>
+                <th>Sample Status</th>
+                <th>Approved Qty</th>
+                <th>Tested On</th>
+                <th>ERP PO Number</th>
+                <th>EUDR Approved Status</th>
+                <th>Loading Point</th>
+                <th>Destination Point</th>
+                <th>Storage Unit</th>
+                <th>Vendor Lot ID</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr style={{ height: "25px" }}>
+            <tr>
                 <td>1</td>
                 <td>Open</td>
                 <td>Open</td>
@@ -263,11 +466,43 @@ export default function AddContractPage() {
                 <td>1</td>
                 <td>6</td>
                 <td>129600 kg</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
-            <tr style={{ height: "100%" }}>
-                <td colSpan="17"></td>
-            </tr>
             </tbody>
 
         </table>
@@ -275,7 +510,7 @@ export default function AddContractPage() {
       </div>
 
       {/* TABS */}
-       <div className="scroll-container">
+    <div className="scroll-container">
 
       {/* Tabs Header */}
       <div className="tab-header">
@@ -333,11 +568,16 @@ export default function AddContractPage() {
                   <th>Act Amount</th>
                   <th>Accrual Amount</th>
                   <th>% Remarks</th>
+                  <th>Accrual Date</th>
+                  <th>Accrual</th>
+                  <th>Charge Entity</th>
+                  <th>Basis</th>
+                  <th>Print</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td colSpan="13"></td>
+                  <td colSpan="18"></td>
                 </tr>
               </tbody>
             </table>

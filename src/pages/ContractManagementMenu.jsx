@@ -21,7 +21,7 @@ export default function ContractManagementPage() {
             <h3>Activities</h3>
             <div className="submenu">
               
-               <Link to="/AddContract"><i className="fas fa-file-signature"></i> Contracts</Link>
+               <Link to="/AddSearchContract"><i className="fas fa-file-signature"></i> Contracts</Link>
               <a href="#"><i className="fas fa-tags"></i> Price Contracts</a>
               <a href="#"><i className="fas fa-sync"></i> Roll Contracts</a>
               <a href="#"><i className="fas fa-balance-scale"></i> Clean Costs & Weights</a>
